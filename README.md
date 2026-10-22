@@ -81,6 +81,42 @@ The category routes above map to flat files such as
 `ferdouse-com/category-writing.php`; the router translates the nested URL
 `/category/writing` to that file.
 
+## Differences between the two exports
+
+The inventories below count files in each site directory, including its router,
+404 page, local README, and `.htaccess` configuration. The page count is the
+content routes only; the 404 document and router are listed separately.
+
+| File type / role | `test-ferdouse-com/` | `ferdouse-com/` | Difference |
+| --- | ---: | ---: | --- |
+| Content page PHP files | 20 | 33 | Ferdouse.com has 13 more |
+| Router and 404 PHP files | 2 | 2 | Same count |
+| Local README and `.htaccess` files | 2 | 2 | Same count |
+| PNG images | 160 | 168 | Ferdouse.com has 8 more |
+| WebP images | 154 | 160 | Ferdouse.com has 6 more |
+| JPG images | 19 | 20 | Ferdouse.com has 1 more |
+| CSS stylesheets | 31 | 40 | Ferdouse.com has 9 more |
+| JavaScript files | 26 | 26 | Same count |
+| Font and icon resources | 71 | 71 | Same count |
+| Total files | 485 | 522 | Ferdouse.com has 37 more |
+
+Both snapshots use full HTML documents rather than fragments: each content page
+has its own `<html>`, `<head>`, and `<body>`, with captured metadata and inline
+markup. The common visual structure includes header/navigation, a main content
+area, and footer markup. These are duplicated in page snapshots; there is no
+shared PHP header/footer include.
+
+The `test.ferdouse.com` export is the smaller, more uniform set of 20 content
+pages: each typically has one main content article, alongside the captured site
+chrome.
+The `ferdouse.com` export contains 33 content routes, including four category
+archives. Its page markup has more variation: archive pages use listing-specific
+markup and `<time>` metadata, while regular pages retain the common site
+chrome. The additional routes and archive content contribute to its higher
+overall amount of captured markup, image files, and stylesheets. Both exports
+preserve the source markup and classes rather than normalizing the two sites to
+a shared DOM.
+
 ## HTML and file structure
 
 Each page is a standalone `.php` file containing a complete captured HTML
