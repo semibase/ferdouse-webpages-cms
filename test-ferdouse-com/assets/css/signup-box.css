@@ -1,0 +1,126 @@
+/*
+ * Topic sign-up box (includes/page-view.php topic_signup_box()) — client deck
+ * 19Oct26 slides 7, 9, 10: Movie / Books / Poetry. Readable on the dark theme
+ * (slide 7: "enhance the readability of these text"), same working form as the
+ * footer, tagged with the page's topic.
+ */
+.signup-box {
+    max-width: 760px;
+    margin: 48px auto 56px;
+    padding: 32px 28px 28px;
+    border: 1px solid rgba(255, 204, 0, 0.35);
+    border-radius: 16px;
+    background: linear-gradient(160deg, #262626, #1b1b1b);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.signup-box__title {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-family: Orbitron, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-wrap: balance;
+}
+
+.signup-box__intro {
+    margin: 0 0 22px;
+    color: #e6e6e6;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.signup-box .wpforms-field-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.signup-box .wpforms-field-text,
+.signup-box .wpforms-field-email {
+    flex: 1 1 220px;
+    max-width: 320px;
+}
+
+.signup-box input[type="text"],
+.signup-box input[type="email"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #5a5a5a;
+    border-radius: 8px;
+    background: #121212;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.signup-box input::placeholder {
+    color: #bdbdbd;
+    opacity: 1;
+}
+
+.signup-box .wpforms-field-mailchimp {
+    flex: 0 0 100%;
+}
+
+.signup-box .wpforms-field-mailchimp label {
+    color: #e6e6e6;
+    font-size: 15px;
+}
+
+.signup-box .g-recaptcha,
+.signup-box .recaptcha-field {
+    display: flex;
+    justify-content: center;
+    margin: 14px 0 0;
+}
+
+.signup-box .wpforms-submit-container {
+    margin-top: 16px;
+}
+
+.signup-box .wpforms-submit {
+    min-width: 180px;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .signup-box {
+        margin: 32px 0 40px;
+        padding: 24px 16px 20px;
+    }
+
+    .signup-box__title {
+        font-size: 22px;
+    }
+
+    .signup-box__intro {
+        font-size: 16px;
+    }
+
+    .signup-box .wpforms-field-text,
+    .signup-box .wpforms-field-email {
+        max-width: none;
+    }
+}
+
+.signup-box__more {
+    margin: -10px 0 20px;
+    font-size: 16px;
+}
+
+.signup-box__more a {
+    color: #FFCC00;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.signup-box__more a:hover,
+.signup-box__more a:focus-visible {
+    color: #ffffff;
+}
