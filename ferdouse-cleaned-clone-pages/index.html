@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ferdouse Khaleque | Sci-Fi Author, Poet &amp; Artist</title>
+  <meta name="description" content="Welcome to the universe of Ferdouse Khaleque — sci-fi books, poetry, music and Paintology artwork.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preload" href="assets/fonts/Orbitron-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Teko-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="icon-play" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M10 8.4 16 12l-6 3.6Z" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-pause" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M10 8h1.7v8H10zM12.8 8h1.7v8h-1.7z" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="icon-prev" viewBox="0 0 24 24">
+      <path d="M6.5 5.5v13M18 6.3 9.8 12 18 17.7Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-next" viewBox="0 0 24 24">
+      <path d="M17.5 5.5v13M6 6.3 14.2 12 6 17.7Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-volume" viewBox="0 0 24 24">
+      <path d="M4 9.5h3.2L12 5.6v12.8L7.2 14.5H4Z" fill="currentColor"/>
+      <path d="M15.2 9.1a4 4 0 0 1 0 5.8M17.6 6.6a7.6 7.6 0 0 1 0 10.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-muted" viewBox="0 0 24 24">
+      <path d="M4 9.5h3.2L12 5.6v12.8L7.2 14.5H4Z" fill="currentColor"/>
+      <path d="m15.5 9 5 5M20.5 9l-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-repeat" viewBox="0 0 24 24">
+      <path d="M4.5 9.5V8A2.5 2.5 0 0 1 7 5.5h11M18.7 3.4 21 5.5l-2.3 2.1M19.5 14.5V16a2.5 2.5 0 0 1-2.5 2.5H6M5.3 20.6 3 18.5l2.3-2.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-chevron-left" viewBox="0 0 24 24">
+      <path d="M15 4 7 12l8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24">
+      <path d="m9 4 8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+      <path d="M3 12h16M14 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-youtube" viewBox="0 0 24 24">
+      <path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8Z" fill="currentColor"/>
+      <path d="m10 15 5-3-5-3Z" fill="#fff"/>
+    </symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24">
+      <path d="M13.4 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13H10v8Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24">
+      <path d="M4 3h4.4l4.2 5.7L17.5 3H20l-6.2 7.3L21 21h-4.4l-4.7-6.3L6.4 21H4l6.6-7.7Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" title="Ferdouse">
+        <img src="assets/images/logo.png" width="1024" height="179" alt="Ferdouse">
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary">
+        <a class="nav-link is-current" href="index.html">Home</a>
+        <a class="nav-link" href="movie.html">Movie</a>
+        <div class="nav-item has-dropdown">
+          <a class="nav-link nav-trigger" href="books.html" aria-haspopup="true" aria-expanded="false">
+            Books
+          </a>
+          <ul class="dropdown" aria-label="Books">
+            <li><a href="blue-the-ancient-rock.html">Blue the ancient rock</a></li>
+            <li><a href="death-of-a-star.html">Death of a Star</a></li>
+            <li><a href="enlightenment.html">Nantolite</a></li>
+            <li><a href="planet-seracuse-2.html">Planet Seracuse</a></li>
+            <li><a href="seracuse-island.html">Seracuse Island</a></li>
+            <li><a href="planet-seracuse.html">Enlightenment</a></li>
+            <li><a href="planet-blue.html">Planet Blue</a></li>
+            <li><a href="singularity-mindscape.html">Singularity &amp; Mindscape</a></li>
+            <li><a href="multiverse-timeline.html">Multiverse Timeline</a></li>
+            <li><a href="tim-the-super-sentient.html">Tim the super sentient</a></li>
+            <li><a href="jupiter-earth-project.html">Jupiter earth project</a></li>
+            <li><a href="the-dark-web.html">The dark WEB</a></li>
+          </ul>
+        </div>
+        <a class="nav-link" href="poetry.html">Poetry</a>
+        <a class="nav-link" href="music.html">Music</a>
+        <a class="nav-link" href="art.html">Art</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <nav aria-label="Mobile primary">
+        <a href="index.html">Home</a>
+        <a href="movie.html">Movie</a>
+        <a href="books.html">Books</a>
+        <a href="poetry.html">Poetry</a>
+        <a href="music.html">Music</a>
+        <a href="art.html">Art</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/kj8yzkY1c98?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=kj8yzkY1c98&amp;playsinline=1&amp;modestbranding=1&amp;rel=0&amp;iv_load_policy=3&amp;start=1"
+          title="Blue, the Ancient Rock — official book trailer"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          referrerpolicy="strict-origin-when-cross-origin"
+          tabindex="-1"></iframe>
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-kicker">WELCOME TO THE UNIVERSE OF</p>
+        <h1 id="hero-title">FERDOUSE KHALEQUE</h1>
+        <p class="hero-tagline">A SCI-FI EPIC THAT WILL CHANGE THE WAY YOU THINK OF THE FUTURE</p>
+        <a class="hero-cta" href="movie.html">
+          <span>Watch Episodes</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3.5v17L20 12Z" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="blue" id="blue" aria-labelledby="blue-title">
+      <div class="container blue-layout">
+        <div class="blue-text">
+          <div class="blue-heading">
+            <h2 class="blue-title" id="blue-title">BLUE</h2>
+            <h2 class="blue-subtitle">Deflecting Blue: The Final Stand</h2>
+          </div>
+          <div class="blue-copy">
+            <p class="blue-intro">It is the year 2186</p>
+            <p>Blue, the ancient rock originating from a solar system light years away was heading towards earth. It had the whole world on its knees as they battled to deflect it from the direction of the earth&rsquo;s path.</p>
+            <p>A previous attempt to send an unmanned ship to strike the rock showed a shift in its direction but it quickly transpired that it had regained its original trajectory towards earth. Was Blue harboring dark secrets or was it just another asteroid gone astray?</p>
+            <p>Earth had one last option and that was to send a spacecraft to meet this monster head on. On board the spacecraft were fusion arrays capable of sending the moon off its orbit. Can Dave Challice and the IRG (international rapid group) on earth succeed in preventing the total annihilation of the human species?</p>
+          </div>
+          <div class="blue-actions">
+            <a class="btn btn-yellow btn-teko" href="https://www.amazon.com/dp/B0H96L839N" target="_blank" rel="noopener">Audio <span aria-hidden="true">&rsaquo;</span></a>
+            <a class="btn btn-yellow btn-teko" href="https://www.amazon.com/dp/B0H96L839N" target="_blank" rel="noopener">Ebook <span aria-hidden="true">&rsaquo;</span></a>
+            <a class="btn btn-yellow btn-teko" href="https://www.amazon.com/dp/B0H96C3LFY" target="_blank" rel="noopener">Paperback <span aria-hidden="true">&rsaquo;</span></a>
+            <a class="btn btn-yellow btn-teko" href="https://www.amazon.com/dp/B0C2S59PSF" target="_blank" rel="noopener">Hardback <span aria-hidden="true">&rsaquo;</span></a>
+          </div>
+        </div>
+        <div class="blue-cover">
+          <img src="assets/images/blue-cover.webp" width="598" height="1024" alt="Deflecting Blue: The Final Stand book cover" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="books" id="books" aria-labelledby="books-title">
+      <div class="container">
+        <div class="section-head books-head">
+          <h2 id="books-title">Books</h2>
+          <a class="btn btn-dark-pill" href="books.html">View All Books</a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="book-carousel" data-carousel aria-roledescription="carousel" aria-label="Ferdouse books">
+          <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous books">
+            <svg aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
+          </button>
+          <div class="carousel-viewport">
+            <div class="carousel-track" id="book-track"></div>
+          </div>
+          <button class="carousel-arrow carousel-next" type="button" aria-label="Next books">
+            <svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+          </button>
+          <div class="carousel-dots" role="tablist" aria-label="Choose book slide"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="poetry" id="poetry" aria-labelledby="poetry-title">
+      <div class="poetry-inner">
+        <div class="section-head poetry-head">
+          <div class="head-copy">
+            <h2 id="poetry-title">Poetry</h2>
+            <p class="section-sub">A late-blooming second passion &ndash; short, personal, and a little more human than the sci-fi.</p>
+          </div>
+          <a class="btn btn-dark-pill poetry-cta" href="https://allpoetry.com/Ferdouse" target="_blank" rel="noopener">View&nbsp;&nbsp;AllPoetry</a>
+        </div>
+        <div class="poetry-grid" id="poetry-grid"></div>
+      </div>
+    </section>
+
+    <div class="divider-wrap" aria-hidden="true"><div class="divider"></div></div>
+
+    <section class="music" id="music" aria-labelledby="music-title">
+      <div class="container">
+        <div class="section-head music-head">
+          <div class="head-copy">
+            <h2 id="music-title">Music</h2>
+            <p class="section-sub">Turning poems to beautiful and artistry songs, released on Ferdouse Youtube channel</p>
+          </div>
+          <div class="music-head-side">
+            <p class="eyebrow">POEMS, SET TO SONG</p>
+            <a class="btn btn-white btn-teko youtube-btn" href="https://www.youtube.com/watch?v=qAnC1A-K-SM&amp;list=PLMmXHpkDJJpo" target="_blank" rel="noopener">
+              <svg class="yt-icon" aria-hidden="true"><use href="#icon-youtube"></use></svg>
+              Ferdouse On YouTube
+            </a>
+          </div>
+        </div>
+        <div class="music-card">
+          <div class="music-video">
+            <iframe
+              id="music-frame"
+              src="https://www.youtube-nocookie.com/embed/uK5Z--UKtsc?rel=0&amp;modestbranding=1&amp;playsinline=1&amp;controls=1"
+              title="Ferdouse music playlist"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+          <div class="playlist" id="playlist">
+            <div class="playlist-header">
+              <h3>Playlist</h3>
+              <button class="playlist-toggle" type="button" aria-expanded="true" aria-controls="playlist-list" aria-label="Collapse playlist">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+            <div class="playlist-list" id="playlist-list" role="list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-wrap" aria-hidden="true"><div class="divider"></div></div>
+
+    <section class="artwork" id="art" aria-labelledby="art-title">
+      <div class="container">
+        <div class="art-head">
+          <h2 id="art-title">Artwork</h2>
+          <p class="section-sub">A drawing app for Android, built to make digital painting feel as natural as picking up a pencil.</p>
+        </div>
+        <div class="art-card">
+          <div class="art-video">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/Xeaq7f8dc0E?rel=0&amp;modestbranding=1&amp;playsinline=1&amp;controls=1"
+              title="Paintology drawing app video"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              referrerpolicy="strict-origin-when-cross-origin"
+              loading="lazy"
+              allowfullscreen></iframe>
+          </div>
+          <div class="art-content">
+            <img class="paintology-art" src="assets/images/paintology-playstore.webp" width="882" height="319" alt="Paintology app artwork and Google Play badge" loading="lazy">
+            <ul class="art-list">
+              <li>
+                <strong>ONE-BRUSH TECHNIQUE</strong>
+                Rapid, natural-looking art using a single brush and its opacity setting &ndash; no complicated toolset to learn.
+              </li>
+              <li>
+                <strong>600+ FREE LESSONS</strong>
+                Step-by-step tutorials that build real drawing skill, phone-first.
+              </li>
+              <li>
+                <strong>BUILT OVER SIX YEARS</strong>
+                A method refined lesson by lesson, shown weekly on the Paintology YouTube channel.
+              </li>
+            </ul>
+            <div class="art-actions">
+              <a class="btn btn-yellow btn-teko" href="https://play.google.com/store/apps/developer?id=Paintology" target="_blank" rel="noopener">
+                Get It On Google Play
+                <svg class="btn-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 3.2v17.6L14.5 12Z" fill="currentColor"/><path d="M4 3.2 17.4 9.7 14.5 12Z" fill="currentColor" opacity=".65"/><path d="M4 20.8 17.4 14.3 14.5 12Z" fill="currentColor" opacity=".65"/></svg>
+              </a>
+              <a class="btn btn-red btn-teko" href="https://www.youtube.com/@Paintology/playlists" target="_blank" rel="noopener">
+                <svg class="btn-icon" aria-hidden="true"><use href="#icon-youtube"></use></svg>
+                Paintology On YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about-card">
+          <div class="about-copy">
+            <p class="eyebrow">ABOUT</p>
+            <h2 id="about-title">Ferdouse Khaleque</h2>
+            <p>Ferdouse Khaleque is a passionate writer and artist with many years of experience in technology and the sciences.</p>
+            <p>Anyone can enjoy the benefits of creativity, you just need to get started and just do it. His Paintology app has brought the love of painting back into digital. He continues to find new ways to improve, educate and get more people onto the path of the creative world.</p>
+            <a class="btn btn-yellow btn-small" href="contact.html">Contact</a>
+          </div>
+          <div class="about-portrait">
+            <img src="assets/images/portrait.png" width="500" height="500" alt="Ferdouse Khaleque" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter" aria-labelledby="newsletter-title">
+      <div class="newsletter-image">
+        <img src="assets/images/newsletter.jpg" width="1000" height="681" alt="A red planet and its moon in a glowing nebula" loading="lazy">
+      </div>
+      <div class="newsletter-side">
+        <div class="newsletter-copy">
+          <h2 id="newsletter-title">Get upcoming news</h2>
+          <h2 class="newsletter-accent">Join the universe of Ferdouse</h2>
+          <h3>Sign up to get a free book!</h3>
+
+          <form class="newsletter-form" data-newsletter-form novalidate>
+            <div class="form-fields">
+              <div class="field">
+                <label class="sr-only" for="news-name">Name</label>
+                <input id="news-name" name="name" type="text" placeholder="Name" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label class="sr-only" for="news-email">Email address</label>
+                <input id="news-email" name="email" type="email" placeholder="Email address" autocomplete="email" required>
+              </div>
+            </div>
+            <label class="checkbox">
+              <input type="checkbox" name="subscribe" checked>
+              <span>Subscribe Newsletter?</span>
+            </label>
+            <div class="recaptcha" aria-label="reCAPTCHA verification (demo)">
+              <label class="recaptcha-check">
+                <input type="checkbox" name="not-a-robot" aria-label="I'm not a robot" required>
+                <span class="recaptcha-box" aria-hidden="true"></span>
+              </label>
+              <span class="recaptcha-label">I'm not a robot</span>
+              <span class="recaptcha-brand">
+                <img src="assets/images/recaptcha-logo.png" width="48" height="48" alt="" loading="lazy">
+                <span>reCAPTCHA</span>
+                <small>Privacy - Terms</small>
+              </span>
+            </div>
+            <button class="btn btn-yellow btn-submit" type="submit">Get Free Book</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="news-section" aria-labelledby="news-title">
+      <div class="container">
+        <h2 id="news-title">News</h2>
+        <div class="news-grid">
+          <article class="news-card">
+            <a class="news-thumb" href="how-i-get-into-writing.html" tabindex="-1" aria-hidden="true">
+              <img src="assets/images/author.png" alt="" width="593" height="525" loading="lazy">
+            </a>
+            <p class="news-cat"><a href="category-writing.html">Writing</a></p>
+            <h3 class="news-title"><a href="how-i-get-into-writing.html">How I got into writing</a></h3>
+          </article>
+          <article class="news-card">
+            <p class="news-cat"><a href="category-vfx.html">VFX</a></p>
+            <h3 class="news-title"><a href="quam-vulputate-dignissim-suspendisse-intellus.html">Quam Vulputate Dignissim Suspendisse Intellus</a></h3>
+          </article>
+          <article class="news-card">
+            <p class="news-cat"><a href="category-vfx.html">VFX</a></p>
+            <h3 class="news-title"><a href="vestibulum-commodo-sapien-non-elit-vitae.html">Vestibulum Commodo Sapien Nonelit Vitae</a></h3>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col footer-newsletter">
+          <a class="footer-brand" href="index.html">
+            <img src="assets/images/logo.png" width="1024" height="179" alt="Ferdouse" loading="lazy">
+          </a>
+          <h3>Join our newsletter</h3>
+          <form class="newsletter-form footer-form" data-newsletter-form novalidate>
+            <div class="form-fields">
+              <div class="field">
+                <label class="sr-only" for="footer-name">Name</label>
+                <input id="footer-name" name="name" type="text" placeholder="Name" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label class="sr-only" for="footer-email">Email address</label>
+                <input id="footer-email" name="email" type="email" placeholder="Email address" autocomplete="email" required>
+              </div>
+            </div>
+            <label class="checkbox">
+              <input type="checkbox" name="subscribe" checked>
+              <span>Subscribe Newsletter?</span>
+            </label>
+            <div class="recaptcha" aria-label="reCAPTCHA verification (demo)">
+              <label class="recaptcha-check">
+                <input type="checkbox" name="not-a-robot" aria-label="I'm not a robot" required>
+                <span class="recaptcha-box" aria-hidden="true"></span>
+              </label>
+              <span class="recaptcha-label">I'm not a robot</span>
+              <span class="recaptcha-brand">
+                <img src="assets/images/recaptcha-logo.png" width="48" height="48" alt="" loading="lazy">
+                <span>reCAPTCHA</span>
+                <small>Privacy - Terms</small>
+              </span>
+            </div>
+            <button class="btn btn-yellow btn-submit" type="submit">Get Free Book</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="footer-col">
+          <h3>Site Menu</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="poetry.html">Poetry</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="art.html">Art</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Information</h3>
+          <ul class="footer-links">
+            <li><a href="sitemap.html">Site Map</a></li>
+            <li><a href="cookies-policy.html">Cookies Policy</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact-col">
+          <a class="btn btn-yellow btn-small footer-contact" href="contact.html">Contact us</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">Copyright &copy; 2026 - by Ferdouse.com</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg aria-hidden="true"><use href="#icon-facebook"></use></svg></a>
+          <a href="#" aria-label="X"><svg aria-hidden="true"><use href="#icon-x"></use></svg></a>
+          <a href="#" aria-label="Instagram"><svg aria-hidden="true"><use href="#icon-instagram"></use></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
