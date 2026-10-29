@@ -1,9 +1,10 @@
 # ferdouse.com — static clone
 
-`ferdouse-cleaned-clone-pages/` is a hand-built, dependency-free static copy of
+The root of this repository is a hand-built, dependency-free static copy of
 [ferdouse.com](https://www.ferdouse.com/) — the homepage plus every internal
 route the site links to. Plain HTML, plain CSS, plain JavaScript: no framework,
-no bundler, no build step, `npm install` nothing.
+no bundler, no build step, `npm install` nothing. Every page sits directly in
+the repository root; there is no enclosing project directory.
 
 | | |
 | --- | --- |
@@ -17,7 +18,6 @@ no bundler, no build step, `npm install` nothing.
 ## Run it
 
 ```bash
-cd ferdouse-cleaned-clone-pages
 python3 -m http.server 4173 --bind 127.0.0.1   # http://127.0.0.1:4173/
 ```
 
@@ -31,16 +31,17 @@ etc.
 ## Layout
 
 ```
-ferdouse-cleaned-clone-pages/
-├── index.html            homepage, hand-written
-├── <slug>.html           35 interior pages
+.                       repository root — the site itself
+├── index.html          homepage, hand-written
+├── <slug>.html         35 interior pages, all at the root
 ├── favicon.png
-├── css/styles.css        design tokens, header, hero, sections, footer, forms, news
-├── css/pages.css         interior page shell, breadcrumbs, grids, body.interior overrides
-├── js/main.js            sticky header, mobile menu, Books dropdown, carousel,
-│                         audio players, YouTube playlist switch, newsletter forms
-├── js/pages.js           interior free-info + contact form validation
-└── assets/{fonts,images,audio}/
+├── css/styles.css      design tokens, header, hero, sections, footer, forms, news
+├── css/pages.css       interior page shell, breadcrumbs, grids, data-prefix blog rules
+├── js/main.js          sticky header, mobile menu, Books dropdown, carousel,
+│                       audio players, YouTube playlist switch, newsletter forms
+├── js/pages.js         interior free-info + contact form validation
+├── assets/{fonts,images,audio}/
+└── README.md
 ```
 
 ## How the clean HTML was generated
@@ -231,11 +232,27 @@ archives (`category-vfx`, `category-commercial`).
 
 ## Repository history
 
-`main` previously carried four directories of earlier site captures
-(`ferdouse-com`, `ferdouse-com-html`, `test-ferdouse-com`,
-`test-ferdouse-com-html`) totalling 1 525 files and ~440 MB. Those were removed
-from the tip and replaced by this cleaned build. The old captures remain
-recoverable from history (`git checkout a5bb423 -- ferdouse-com`).
+Three shapes of this repository have lived on `main`:
+
+1. Four directories of earlier site captures (`ferdouse-com`,
+   `ferdouse-com-html`, `test-ferdouse-com`, `test-ferdouse-com-html`) — 1 525
+   files, ~440 MB of raw CMS exports.
+2. The cleaned static build inside an enclosing `ferdouse-cleaned-clone-pages/`
+   directory, at 34 pages.
+3. This version: the enclosing directory is gone and every page, stylesheet,
+   script and asset sits in the repository root, so the repo is the site and
+   GitHub Pages or any static host serves `index.html` without a path prefix.
+   `README.md` is the only file at the root that is not part of the site.
+
+The page set also grew from 34 to 36 in this round. `/blog/`, the five category
+archives and the six live posts were re-cloned from the current site, the four
+retired lorem-ipsum drafts were deleted, `css/pages.css` gained the Blocksy
+`data-prefix` blog typography, the 750 px single-post header column and the
+88 % mobile container, and every interior page lost the extra footer Movie item.
+
+Earlier states stay recoverable from history: the CMS exports at
+`git checkout a5bb423 -- ferdouse-com`, the directory-nested static build at
+`git checkout 1c81d5e -- ferdouse-cleaned-clone-pages`.
 
 ## Scope
 
