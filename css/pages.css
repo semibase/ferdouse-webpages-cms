@@ -909,7 +909,39 @@ body.interior .news-section {
 
 /* Blog archive, category archive, single post --------------------------
    These twelve pages come from the source's Blocksy-native templates, which
-   key their typography to the body's data-prefix attribute. */
+   key their typography to the body's data-prefix attribute. Everything below
+   hangs off that attribute or off .entry-header so the Elementor pages, which
+   were measured against the fixed edge offsets above, are left alone. */
+
+body[data-prefix] {
+  /* Live container edge: --theme-container-edge-spacing, 90vw (88vw on
+     phones), capped by the 1290px normal container. */
+  --edge: 90vw;
+}
+
+body.interior[data-prefix] .header-inner,
+body.interior[data-prefix] .page-shell {
+  width: min(100%, var(--edge));
+  max-width: var(--shell);
+}
+
+/* Live paints the middle header row #1f1f1f with no border and no shadow. */
+body[data-prefix] .site-header {
+  background: var(--card);
+  box-shadow: none;
+}
+
+/* Blocksy's own menu rhythm: --menu-items-spacing is fluid, and half of it
+   becomes each link's inline padding (34px→17px on wide screens, 24px→12px
+   as the window narrows). */
+body[data-prefix] .nav-link {
+  padding-inline: clamp(12px, calc((100vw - 1000px) / 16), 17px);
+}
+
+/* Blocksy's body copy colour; the header and footer set their own. */
+body[data-prefix] #main {
+  color: var(--muted);
+}
 
 body[data-prefix] .page-shell {
   padding-bottom: 80px;
@@ -935,6 +967,46 @@ body[data-prefix] .page-shell {
   width: 750px;
   max-width: 100%;
   margin: 0 auto 40px;
+}
+
+/* Breadcrumb ------------------------------------------------------------
+   The trail is pulled out of whatever column the hero sits in and back to the
+   page container's left edge, then laid out as inline crumbs with an 8×8
+   chevron between them. */
+
+.entry-header .breadcrumb {
+  display: block;
+  width: min(var(--shell), var(--edge));
+  max-width: none;
+  margin: 0 0 0 calc(50% - min(var(--shell), var(--edge)) / 2);
+  color: var(--muted);
+  line-height: 19.8px;
+  text-align: left;
+}
+
+[data-prefix="blog"] .entry-header .breadcrumb,
+[data-prefix="single_blog_post"] .entry-header .breadcrumb {
+  color: var(--white);
+}
+
+.entry-header .breadcrumb > span {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  color: inherit;
+}
+
+.entry-header .breadcrumb .sep {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin: 0 8px;
+  color: inherit;
+  fill: currentColor;
+}
+
+.entry-header .breadcrumb a:hover {
+  text-decoration: none;
 }
 
 .entry-header .page-title {
@@ -986,12 +1058,21 @@ body[data-prefix] .page-shell {
   }
 }
 
-.blog-listing {
+@media (max-width: 689.98px) {
+  body[data-prefix] {
+    --edge: 88vw;
+  }
+}
+
+.blog-listing,
+.category-archive {
   margin: 0;
 }
 
+/* The archive list is an unstyled <ul> on the live site: the theme's list
+   indent and the 1.5em paragraph gap are all that shape it. */
 .post-list {
-  margin: 0;
+  margin: 0 0 24px;
   padding-left: 40px;
   list-style: disc;
 }
@@ -1046,6 +1127,13 @@ body[data-prefix] .page-shell {
 
 .post-body a {
   color: var(--yellow);
+  /* Live [data-link="type-2"]: content links carry an underline until the
+     pointer is on them. */
+  text-decoration: underline;
+}
+
+.post-body a:hover {
+  text-decoration: none;
 }
 
 .post-body h2 {
@@ -1056,8 +1144,10 @@ body[data-prefix] .page-shell {
   line-height: 52.5px;
 }
 
+/* Theme heading bottom margin is calc(.3em + 10px), so it scales with the
+   heading: 20.5px at 35px, 19px at 30px. */
 .post-body h3 {
-  margin: 0 0 20.5px;
+  margin: 0 0 19px;
   color: var(--white);
   font-size: 30px;
   font-weight: 700;

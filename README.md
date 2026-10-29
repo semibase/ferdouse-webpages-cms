@@ -167,18 +167,23 @@ missing sections; every section, card, control and link is present on both.
 
 | Page | Source 1440 | Clone 1440 | Source 384 | Clone 384 |
 | --- | --- | --- | --- | --- |
-| `blog` | 2166 | 2165 | 4150 | 4150 |
-| `category-art` | 1274 | 1273 | 2529 | 2528 |
-| `category-writing` | 1526 | 1526 | 2834 | 2834 |
-| `category-video` | 1047 | 1047 | 1934 | 1934 |
-| `category-vfx` | 1020 | 1020 | 1600 | 1600 |
-| `category-commercial` | 1020 | 1020 | 1600 | 1600 |
-| `the-throne` | 3678 | 3677 | 5751 | 5751 |
-| `for-the-love-of-art` | 4581 | 4580 | 8614 | 8613 |
-| `turning-a-book-into-an-ai-movie` | 2505 | 2505 | 4513 | 4512 |
-| `from-poetry-to-sci-fi-blue-the-ancient-rock` | 2653 | 2653 | 4936 | 4936 |
-| `does-paintology-teach-the-fundamentals-of-art` | 2684 | 2683 | 4992 | 4992 |
-| `how-i-get-into-writing` | 1779 | 1778 | 2708 | 2708 |
+| `blog` | 2166 | 2166 | 4150 | 4151 |
+| `category-art` | 1274 | 1274 | 2529 | 2529 |
+| `category-writing` | 1526 | 1527 | 2834 | 2835 |
+| `category-video` | 1047 | 1047 | 1934 | 1935 |
+| `category-vfx` | 1020 | 1033 \* | 1600 | 1601 \* |
+| `category-commercial` | 1020 | 1033 \* | 1600 | 1601 \* |
+| `the-throne` | 3678 | 3679 | 5751 | 5752 |
+| `for-the-love-of-art` | 4581 | 4582 | 8614 | 8615 |
+| `turning-a-book-into-an-ai-movie` | 2505 | 2506 | 4513 | 4514 |
+| `from-poetry-to-sci-fi-blue-the-ancient-rock` | 2653 | 2654 | 4936 | 4937 |
+| `does-paintology-teach-the-fundamentals-of-art` | 2684 | 2684 | 4992 | 4993 |
+| `how-i-get-into-writing` | 1779 | 1779 | 2708 | 2709 |
+
+\* The two empty archives hold almost no content, so their height comes from
+Blocksy stretching `#main` to the viewport above the footer: total =
+`max(content 399, 100vh − 404) + 524`. The clone does exactly what the source
+does; the figure tracks the browser window height rather than the page.
 
 All twelve are within 1 px at both viewports, and the agreement is block-level,
 not just page height: the `/blog/` archive title box (x75 w1290 h150 at 1440,
@@ -190,11 +195,38 @@ category footer (26). The tablet step was checked too — the archive title
 resolves to 50/75 at 768 px (page 1468 vs 1467) and 25/37.5 at 384 px.
 
 Matching those twelve took three repairs that the first pass had missed: the
-mobile container is `width: 88%`, not the 344 px the Elementor pages use; the
-source footer Site Menu has no Movie item, so the clone's extra entry added
-26.4 px to every interior page; and Blocksy flexes `.site-main` to fill the
-viewport above its footer, which is only visible on the two empty category
-archives (`category-vfx`, `category-commercial`).
+mobile container is the theme's edge spacing, not the fixed offset the Elementor
+pages use; the source footer Site Menu has no Movie item, so the clone's extra
+entry added 26.4 px to every interior page; and Blocksy flexes `.site-main` to
+fill the viewport above its footer, which is only visible on the two empty
+category archives (`category-vfx`, `category-commercial`).
+
+### Blog set, styles and spacing — parity pass, 2026-10-29
+
+Geometry already matched; colour, type and page furniture did not. Reading the
+source's own `page-blog.css`, `page-default.css` and `site-adjustments.css`
+bundles turned up ten differences, all now reproduced in `css/pages.css` under
+the `body[data-prefix]` and `.entry-header` hooks, so the twenty-four Elementor
+pages keep the styling they were verified against:
+
+| Aspect | Live | Clone before | Clone now |
+| --- | --- | --- | --- |
+| Page container | `min(100%, 90vw)` capped at 1290, `88vw` under 690 | `100% − 150/80/40 px`, `88%` | live formula |
+| Header row | `#1f1f1f`, no border, no shadow | `#1a1a1a` plus a hairline shadow | `var(--card)`, `box-shadow: none` |
+| Menu spacing | `clamp(24px, (100vw − 1000px)/8, 34px)` | fixed 17 px padding | same clamp, halved into the padding |
+| Books item | caret icon, no active state on blog pages | no caret, yellow underline | caret, no active state |
+| Copy colour in `#main` | `#898989` | `#ffffff` | `var(--muted)` |
+| Breadcrumb | `line-height 19.8`, inline-flex crumbs, 8×8 chevron with `margin: 0 8px`, colour per prefix (white on `blog` / `single_blog_post`, muted on archives) | flex row with 16 px gaps around a `›` glyph, last crumb forced muted | live layout, glyph and colours |
+| Breadcrumb on a post | pulled out of the 750 px column to the container edge (x 75) | left inside the column (x 345) | `margin-left: calc(50% − min(1290px, 90vw)/2)` |
+| Content links | yellow, underlined until hovered | yellow, never underlined | underlined at rest, none on hover |
+| Post list | `margin-block-end: 1.5em` | 0 | 24 px |
+| `h3` bottom margin | `calc(.3em + 10px)` = 19 px | 20.5 px | 19 px |
+
+Paragraph (16/26.4 `#898989`), card title (35/52.5 700 yellow), blockquote
+(4 px `#FFCC00` bar, 24 px padding, no margin of its own), list indent (40 px
+disc), the 750 px post column, the 40 px hero gap, the 28 px title offset and
+the 136/86 px header clearance were already right and are unchanged. The
+dropdown caret was added to the shared header, so it now shows on every page.
 
 ### Structural comparison
 
@@ -247,8 +279,11 @@ Three shapes of this repository have lived on `main`:
 The page set also grew from 34 to 36 in this round. `/blog/`, the five category
 archives and the six live posts were re-cloned from the current site, the four
 retired lorem-ipsum drafts were deleted, `css/pages.css` gained the Blocksy
-`data-prefix` blog typography, the 750 px single-post header column and the
-88 % mobile container, and every interior page lost the extra footer Movie item.
+`data-prefix` blog typography and the 750 px single-post header column, and
+every interior page lost the extra footer Movie item. A follow-up pass then
+brought those twelve pages into style parity — container formula, header
+colour, breadcrumb, copy colour, link decoration and list spacing, as tabulated
+above — and gave the shared header the Books caret the source renders.
 
 Earlier states stay recoverable from history: the CMS exports at
 `git checkout a5bb423 -- ferdouse-com`, the directory-nested static build at

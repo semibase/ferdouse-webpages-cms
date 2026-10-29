@@ -281,6 +281,24 @@ svg {
   color: var(--yellow);
 }
 
+/* Blocksy's dropdown toggle: a 24px box (pulled 8px back into the item's
+   padding) holding the 8px chevron, tinted with the link's own colour. */
+.nav-caret {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-inline: 0.2em -8px;
+}
+
+.nav-caret svg {
+  width: 8px;
+  height: 8px;
+  fill: currentColor;
+}
+
 .dropdown {
   position: absolute;
   top: 100%;
