@@ -75,7 +75,7 @@ body.interior .dropdown {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 0 8px;
   color: var(--white);
   font-size: 12px;
   font-weight: 600;
@@ -907,49 +907,124 @@ body.interior .news-section {
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
 }
 
-/* Blog list + single post -------------------------------------------- */
+/* Blog archive, category archive, single post --------------------------
+   These twelve pages come from the source's Blocksy-native templates, which
+   key their typography to the body's data-prefix attribute. */
+
+body[data-prefix] .page-shell {
+  padding-bottom: 80px;
+}
+
+/* Blocksy stretches .site-main to fill the viewport above its 524px footer,
+   which is only visible on the near-empty category archives. The clone's
+   header is fixed rather than in flow, so its 120px height folds into the
+   shell's top padding and back out of the offset here. */
+@media (min-width: 1024px) {
+  body[data-prefix] #main {
+    min-height: calc(100vh - 404px);
+  }
+}
+
+.hero-section {
+  margin-bottom: 40px;
+}
+
+/* On single posts Blocksy puts the header inside the 750px post column, so
+   long titles wrap there rather than across the full container. */
+.hero-section--post {
+  width: 750px;
+  max-width: 100%;
+  margin: 0 auto 40px;
+}
+
+.entry-header .page-title {
+  margin: 28px 0 0;
+  text-align: left;
+}
+
+[data-prefix="blog"] .entry-header .page-title {
+  font-size: 100px;
+  font-weight: 800;
+  line-height: 150px;
+}
+
+[data-prefix="single_blog_post"] .entry-header .page-title {
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 75px;
+}
+
+[data-prefix="categories"] .entry-header .page-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 45px;
+}
+
+@media (max-width: 999.98px) {
+  [data-prefix="blog"] .entry-header .page-title {
+    font-size: 50px;
+    line-height: 75px;
+  }
+
+  [data-prefix="single_blog_post"] .entry-header .page-title {
+    font-size: 30px;
+    line-height: 45px;
+  }
+}
+
+@media (max-width: 689.98px) {
+  [data-prefix="blog"] .entry-header .page-title,
+  [data-prefix="single_blog_post"] .entry-header .page-title {
+    font-size: 25px;
+    line-height: 37.5px;
+  }
+}
+
+@media (max-width: 1023px) {
+  body[data-prefix] .page-shell {
+    padding-top: 86px;
+  }
+}
+
+.blog-listing {
+  margin: 0;
+}
 
 .post-list {
+  margin: 0;
   padding-left: 40px;
+  list-style: disc;
 }
 
-.post-item {
-  padding: 0 0 49px;
+.post-card {
+  margin: 0;
 }
 
-.post-item__title {
-  margin: 0 0 12px;
+.post-card h2 {
+  margin: 0 0 20.5px;
+  color: var(--white);
   font-size: 35px;
   font-weight: 700;
   line-height: 52.5px;
 }
 
-.post-item__title a {
+.post-card h2 a {
   color: var(--yellow);
 }
 
-.post-item__title a::before {
-  content: ". ";
-  color: var(--yellow);
-}
-
-.post-item__title a:hover {
-  color: var(--white);
-}
-
-.post-item__excerpt {
-  max-width: 1170px;
-  margin: 0 0 12px;
+.post-card .excerpt,
+.post-card .date {
+  margin: 0 0 24px;
   color: var(--muted);
   font-size: 16px;
   line-height: 26.4px;
 }
 
-.post-item__date {
-  margin: 0;
+.no-posts {
+  margin: 0 0 24px;
   color: var(--muted);
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 26.4px;
 }
 
 .post-body {
@@ -960,15 +1035,6 @@ body.interior .news-section {
 
 .post-body--narrow {
   width: 640px;
-}
-
-.post-body__title {
-  margin: 28px 0 40px;
-  color: var(--white);
-  font-size: 50px;
-  font-weight: 800;
-  line-height: 75px;
-  text-align: center;
 }
 
 .post-body p {
@@ -982,15 +1048,44 @@ body.interior .news-section {
   color: var(--yellow);
 }
 
-.post-body__image img {
-  width: 300px;
-  height: 266px;
-  object-fit: cover;
+.post-body h2 {
+  margin: 0 0 20.5px;
+  color: var(--white);
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 52.5px;
 }
 
-.post-body__meta {
-  margin-top: 30px;
-  font-size: 15px;
+.post-body h3 {
+  margin: 0 0 20.5px;
+  color: var(--white);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 45px;
+}
+
+.post-body blockquote {
+  margin: 0;
+  padding-left: 24px;
+  border-left: 4px solid var(--yellow);
+}
+
+.post-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.post-body ul,
+.post-body ol {
+  margin: 0 0 24px;
+  padding-left: 40px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 26.4px;
+  list-style: disc;
+}
+
+.post-body ol {
+  list-style: decimal;
 }
 
 /* Sitemap ------------------------------------------------------------ */
@@ -1190,10 +1285,6 @@ body.interior .newsletter {
     padding-left: 0;
   }
 
-  .post-list {
-    padding-left: 0;
-  }
-
   .subject-section {
     margin-bottom: 80px;
   }
@@ -1236,10 +1327,6 @@ body.interior .newsletter {
   body.interior .about-portrait img {
     width: 300px;
     height: 300px;
-  }
-
-  .breadcrumb {
-    font-size: 11px;
   }
 
   .page-title {
@@ -1314,13 +1401,9 @@ body.interior .newsletter {
     width: 266px;
   }
 
-  .post-body {
+  .post-body,
+  .hero-section--post {
     width: 100%;
-  }
-
-  .post-body__title {
-    font-size: 32px;
-    line-height: 44px;
   }
 
   .sitemap-list {
@@ -1333,6 +1416,10 @@ body.interior .newsletter {
 }
 
 @media (max-width: 767px) {
+  .page-shell {
+    width: 88%;
+  }
+
   .video-grid,
   .book-grid,
   .subject-grid,
@@ -1378,11 +1465,6 @@ body.interior .newsletter {
 
   .quote-card {
     padding: 26px 20px;
-  }
-
-  .post-item__title {
-    font-size: 26px;
-    line-height: 38px;
   }
 
   .video-note {

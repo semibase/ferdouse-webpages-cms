@@ -7,12 +7,12 @@ no bundler, no build step, `npm install` nothing.
 
 | | |
 | --- | --- |
-| Pages | 34 (1 homepage + 33 interior) |
-| Stylesheets | 4 159 lines — `css/styles.css` (2 763) + `css/pages.css` (1 396) |
+| Pages | 36 (1 homepage + 35 interior) |
+| Stylesheets | 4 241 lines — `css/styles.css` (2 763) + `css/pages.css` (1 478) |
 | Scripts | 871 lines — `js/main.js` (792) + `js/pages.js` (79) |
-| Local assets | 53 files / 25 MB (4 MP3 = 17 MB, 40 images, 9 `woff2`) |
-| Local links in page bodies | 2 044 |
-| External links left | 50 → `www.amazon.com` (37), `www.youtube.com` (9), `allpoetry.com` (2), `play.google.com` (2) |
+| Local assets | 55 files / 25 MB (4 MP3 = 17 MB, 42 images, 9 `woff2`) |
+| Local links in page bodies | 2 317 |
+| External links left | 82 → `www.amazon.com` (39), `www.youtube.com` (15), `paintology.com` (9), `allpoetry.com` (7), `play.google.com` (5), `www.youtube-nocookie.com` (5), `salsapal.com` (2) |
 
 ## Run it
 
@@ -33,7 +33,7 @@ etc.
 ```
 ferdouse-cleaned-clone-pages/
 ├── index.html            homepage, hand-written
-├── <slug>.html           33 interior pages
+├── <slug>.html           35 interior pages
 ├── favicon.png
 ├── css/styles.css        design tokens, header, hero, sections, footer, forms, news
 ├── css/pages.css         interior page shell, breadcrumbs, grids, body.interior overrides
@@ -54,37 +54,53 @@ re-implemented.
 **1. Route discovery.** The homepage was walked and every internal link collected
 — nav, the 12-item Books dropdown, footer columns, in-page CTAs, the sitemap —
 then filtered to exclude Google Play, Amazon, YouTube and AllPoetry, which stay
-live external links. 34 routes. `/category/writing/` was dropped because the
-live URL returns a 404.
+live external links (the Paintology and SalsaPal product sites, which are not
+part of ferdouse.com, stay external too). 36 routes. The blog half of that set
+was re-derived on 2026-10-29 from the live `/blog/` archive, because the earlier
+capture pointed at drafts the site had already retired.
 
 **2. Raw capture.** Each route was fetched and the server HTML stored in a
-scratch directory so structure could be re-read without re-hitting the site.
-Blog sections present in the source DOM but hidden by Elementor at every
-breakpoint were identified here and are not rendered in the clone.
+scratch directory so structure could be re-read without re-hitting the site. The
+blog pages needed their own pass: the archive, the five category archives and the
+six posts were re-fetched from the live site, their Blocksy theme CSS bundles
+(`page-blog.css`, `page-default.css`, the site adjustments and the inline
+per-page blocks) captured, and the post bodies extracted into a data module that
+preserves paragraph, heading, list, blockquote, image and logo-brand blocks. The
+three lorem-ipsum URLs still linked from the live archive answer HTTP 410 with a
+"page not found" body, so they are not cloned. Blog sections present in the
+Elementor DOM but hidden at every breakpoint were identified here and are not
+rendered in the clone.
 
-**3. Geometry measurement.** Headless Chrome (`puppeteer-core` driving the
-system Chrome binary) loaded the live pages at 1440 px and 390 px and captured
-bounding boxes, computed type ramps, colours and spacing for every section, plus
-document height as the global check. Regions the DOM does not expose — background
-bands, gradient stops, card edges — were recovered by pixel-scanning full-page
-screenshots. Breakpoints were taken from the source's own media queries
-(1300 / 1100 / 1023 / 767) so the clone switches layout at the same widths.
+**3. Geometry measurement.** Headless Chrome loaded the live pages and the clone
+side by side at 1440 px, 768 px and 384 px and captured bounding boxes, computed
+type ramps, colours and spacing for every section, plus document height as the
+global check. Regions the DOM does not expose — background bands, gradient stops,
+card edges — were recovered by pixel-scanning full-page screenshots. Breakpoints
+were taken from the source's own media queries (1300 / 1100 / 1023 / 999.98 /
+767 / 689.98) so the clone switches layout at the same widths.
 
 **4. Asset localization.** Fonts (Orbitron, Teko 600, Roboto 400/700 `woff2`),
 logo, 12 book covers, the Blue cover, 4 poem covers, 4 poem MP3s, the Paintology
-artwork, portrait, newsletter photo, footer background, reCAPTCHA mark and
-favicon were downloaded and renamed semantically under `assets/`. Nothing loads
-from the source host.
+artwork, portrait, newsletter photo, footer background, reCAPTCHA mark, the blog
+author avatar and the Paintology and SalsaPal brand logos used inside posts were
+downloaded and renamed semantically under `assets/`. Nothing loads from the
+source host.
 
 **5. Markup.** `index.html` was written by hand in measured section order
 (header → hero → Blue → books carousel → poetry → divider → music → divider →
-artwork → about → newsletter → news strip → footer). The 33 interior pages share
-five templates (primary, book detail, blog post, category archive, utility) and
-were emitted by a data-driven generator: a content data module keyed by slug,
-plus partials for the header, footer, breadcrumbs, news strip and author card.
-That generator and the measurement scripts lived in an ephemeral scratch
-directory and are **not** part of this repository — the committed output is
-plain static HTML, which is the deliverable.
+artwork → about → newsletter → news strip → footer). The 35 interior pages share
+four Elementor-derived templates (primary, book detail, utility, plus the shared
+newsletter/footer furniture) and were emitted by a data-driven generator: a
+content data module keyed by slug, plus partials for the header, footer,
+breadcrumbs, news strip and author card. The twelve blog pages are the exception:
+they come from Blocksy's native archive and single templates rather than
+Elementor, so they are generated from the captured post data onto the interior
+shell and styled through the theme's own `<body data-prefix>` typography — 100/150
+800 for the `/blog/` archive title, 50/75 800 for the single-post template, 30/45
+700 for category archives and the four 2026 posts, each with the source's
+999.98 px and 689.98 px steps. That generator and the measurement scripts lived in
+an ephemeral scratch directory and are **not** part of this repository — the
+committed output is plain static HTML, which is the deliverable.
 
 **6. Behaviour re-implemented, not vendored.** Swiper, Elementor's sticky-header
 effect and the Blocksy audio widget were rebuilt in `js/main.js` at their
@@ -95,18 +111,19 @@ video on selection; each poem gets a working player with play/pause,
 restart/next, mute, repeat and a seekable progress bar.
 
 **7. Link rewiring.** Every `href` outside `<head>` resolves to a local `.html`
-file — 2 044 of them across the 34 pages, covering the header nav, mobile menu,
-Books dropdown, footer, breadcrumbs and in-page cross-links. Only
-`<link rel="canonical">` and hreflang tags still name the live URLs, which is
-correct for pages that document a copy of a real site.
+file — 2 317 of them across the 36 pages, covering the header nav, mobile menu,
+Books dropdown, footer, breadcrumbs, post category links and in-page
+cross-links. Only `<link rel="canonical">` and hreflang tags still name the live
+URLs, which is correct for pages that document a copy of a real site.
 
 **8. Verification loop.** Each repair round re-ran the headless measurement on
-the clone and diffed against the source numbers. Final gates: all 34 pages
-loaded with zero broken internal links, zero 4xx/5xx responses and zero console
-errors; no horizontal overflow at 390 px or 768 px on any page; interactions
-exercised in the headless run (sticky state, mobile menu, dropdown, carousel
-stepping, audio play + track switch, playlist selection and mobile collapse,
-both invalid and valid newsletter form paths).
+the clone and diffed against the source numbers. Final gates: all 36 pages
+loaded with zero broken internal links, zero 4xx/5xx responses, zero requests to
+the source host for CSS, JS or images, and zero console errors; no horizontal
+overflow at 384 px, 768 px or 1440 px on any page; interactions exercised in the
+headless run (sticky state, mobile menu, dropdown, carousel stepping, audio play
++ track switch, playlist selection and mobile collapse, both invalid and valid
+newsletter form paths).
 
 ## Comparative analysis — live site vs clone
 
@@ -136,15 +153,47 @@ was added to match the source DOM.
 | `movie` | 2036 | 2034 | −0.1% | `music` | 2429 | 2358 | −2.9% |
 | `about-us` | 3728 | 3734 | +0.2% | `free-book` | 2514 | 2438 | −3.0% |
 | `about` | 1573 | 1577 | +0.3% | `art` | 2397 | 2215 | −7.6% |
-| `how-i-get-into-writing` | 1779 | 1789 | +0.6% | `blue-the-ancient-rock` | 2441 | 2385 | −2.3% |
-| `blog` | 1939 | 1950 | +0.6% | `contact` | 2154 | 2138 | −0.7% |
+| `contact` | 2154 | 2138 | −0.7% | `blue-the-ancient-rock` | 2441 | 2385 | −2.3% |
 
-Seven of twelve sampled interior pages land within ±0.7%. `books` — the most
+Five of ten sampled Elementor pages land within ±0.7%. `books` — the most
 complex interior page, with the 12-slide carousel, news strip and the tall
 `565 × 901` author portrait variant — is exact. The remaining 2–8 % shortfalls
 are Elementor container padding inside one card each (`art`'s info-card band is
 ~107 px shorter; the source Submit button sits at y 1337 vs 1230 locally), not
 missing sections; every section, card, control and link is present on both.
+
+### Blog set, document height — re-cloned from the live archive on 2026-10-29
+
+| Page | Source 1440 | Clone 1440 | Source 384 | Clone 384 |
+| --- | --- | --- | --- | --- |
+| `blog` | 2166 | 2165 | 4150 | 4150 |
+| `category-art` | 1274 | 1273 | 2529 | 2528 |
+| `category-writing` | 1526 | 1526 | 2834 | 2834 |
+| `category-video` | 1047 | 1047 | 1934 | 1934 |
+| `category-vfx` | 1020 | 1020 | 1600 | 1600 |
+| `category-commercial` | 1020 | 1020 | 1600 | 1600 |
+| `the-throne` | 3678 | 3677 | 5751 | 5751 |
+| `for-the-love-of-art` | 4581 | 4580 | 8614 | 8613 |
+| `turning-a-book-into-an-ai-movie` | 2505 | 2505 | 4513 | 4512 |
+| `from-poetry-to-sci-fi-blue-the-ancient-rock` | 2653 | 2653 | 4936 | 4936 |
+| `does-paintology-teach-the-fundamentals-of-art` | 2684 | 2683 | 4992 | 4992 |
+| `how-i-get-into-writing` | 1779 | 1778 | 2708 | 2708 |
+
+All twelve are within 1 px at both viewports, and the agreement is block-level,
+not just page height: the `/blog/` archive title box (x75 w1290 h150 at 1440,
+100/150 800), the post list (y334 h1203) and its six card heights
+(176 / 150 / 229 / 176 / 176 / 176); on `/the-throne/` the hero (138), the
+two-line title inside the centred 750 px column (30/45 700, 90 tall), the article
+(2759 source vs the clone's 2736 body plus the same 40 px header gap) and the
+category footer (26). The tablet step was checked too — the archive title
+resolves to 50/75 at 768 px (page 1468 vs 1467) and 25/37.5 at 384 px.
+
+Matching those twelve took three repairs that the first pass had missed: the
+mobile container is `width: 88%`, not the 344 px the Elementor pages use; the
+source footer Site Menu has no Movie item, so the clone's extra entry added
+26.4 px to every interior page; and Blocksy flexes `.site-main` to fill the
+viewport above its footer, which is only visible on the two empty category
+archives (`category-vfx`, `category-commercial`).
 
 ### Structural comparison
 
@@ -164,9 +213,21 @@ missing sections; every section, card, control and link is present on both.
   submission are visual only, and the reCAPTCHA badge is a static image.
 - Amazon, Google Play, YouTube and AllPoetry links stay external by request, so
   book purchase buttons, hero/artwork video embeds and AllPoetry poem pages
-  still resolve to the real services.
+  still resolve to the real services; the same holds for the Paintology and
+  SalsaPal sites, which live outside ferdouse.com.
 - Canonical and hreflang tags keep the live URLs; body links do not.
 - Elementor-hidden blog blocks in the source DOM are not rendered.
+- The live `/blog/` archive still links three lorem-ipsum drafts that answer
+  HTTP 410 with Blocksy's "page not found" body. They are not cloned; the clone
+  carries the six posts that render real content, and its homepage `News` strip —
+  which on the source points at two of those 410 URLs and shows four cards —
+  points at the newest real posts instead so no internal link dead-ends.
+- The footer Site Menu mirrors the source's seven items (Home, Books, Poetry,
+  Music, Art, About, Contact); the Movie entry this clone originally carried
+  there was removed. The header nav and mobile menu keep Movie, as on the source.
+- The clone's interior header is `position: fixed` with compensating
+  `.page-shell` padding (136 px desktop, 86 px at ≤ 1023) while the source header
+  is in flow; heights agree, stacking contexts differ.
 
 ## Repository history
 

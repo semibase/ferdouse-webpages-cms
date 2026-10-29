@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>How I got into writing – Ferdouse Khaleque</title>
-  <meta name="description" content="Writing has not always been a passion of mine. It came about through the necessity of working in high-tech companies and the research I did while studying">
+  <meta name="description" content="Writing has not always been a passion of mine.">
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preload" href="assets/fonts/Orbitron-400-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/pages.css">
   <link rel="canonical" href="https://www.ferdouse.com/how-i-get-into-writing/">
 </head>
-<body class="interior">
+<body class="interior" data-prefix="single_blog_post">
 <svg class="icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
     <symbol id="icon-play" viewBox="0 0 24 24">
       <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.4"/>
@@ -75,7 +75,7 @@
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="movie.html">Movie</a>
         <div class="nav-item has-dropdown">
-          <a class="nav-link nav-trigger" href="books.html" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link nav-trigger is-current" href="books.html" aria-current="page" aria-haspopup="true" aria-expanded="false">
             Books
           </a>
           <ul class="dropdown" aria-label="Books">
@@ -135,24 +135,31 @@
   </header>
   <main id="main">
     <div class="page-shell">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a><span class="sep" aria-hidden="true">&rsaquo;</span><a href="category-writing.html">Writing</a><span class="sep" aria-hidden="true">&rsaquo;</span><span aria-current="page">How I got into writing</span>
-    </nav>
+    <div class="hero-section hero-section--post">
+    <header class="entry-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span class="sep" aria-hidden="true">&rsaquo;</span> <a href="category-writing.html">Writing</a> <span class="sep" aria-hidden="true">&rsaquo;</span> <span aria-current="page">How I got into writing</span>
+      </nav>
+      <h1 class="page-title">How I got into writing</h1>
+    </header>
+    </div>
     <article class="post-body">
-      <h1 class="post-body__title">How I got into writing</h1>
       <p>Writing has not always been a passion of mine.</p>
       <p>It came about through the necessity of working in high-tech companies and the research I did while studying for my research.</p>
       <p>A recent lifestyle change last year, allowed me the time to divulge in areas that I had never explored.</p>
       <p>This included reading poetry.</p>
-      <p>A website that I found encouraged me to grasp the true essence of the past great poets such as Wordsworth, Elliott, Dickinson...</p>
+      <p>A website that I found encouraged me to grasp the true essence of the past great poets such as Wordsworth, Elliott, Dickinson&#8230;</p>
       <p>This led me to write my own poems on the popular site allPoetry.com</p>
       <p>I was hesitant at first writing my first poem, but as the great Chinese proverb once said, the first step is always the hardest.</p>
       <p>I wrote one and in a matter of month or two, I had written 200 poems. Mostly free verse but with some also in rhyme.</p>
-      <p class="post-body__image"><img src="assets/images/author.png" width="300" height="266" alt="Ferdouse Khaleque" loading="lazy"></p>
-      <p class="post-body__meta">Categories: <a href="category-writing.html">Writing</a></p>
+      <p><img src="assets/images/author.png" alt="" width="300" height="266" /></p>
+      <footer class="post-categories">
+        <p>Categories: <a href="category-writing.html">Writing</a></p>
+      </footer>
     </article>
     </div>
   </main>
+
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-grid">
@@ -197,7 +204,6 @@
           <h3>Site Menu</h3>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="movie.html">Movie</a></li>
             <li><a href="books.html">Books</a></li>
             <li><a href="poetry.html">Poetry</a></li>
             <li><a href="music.html">Music</a></li>

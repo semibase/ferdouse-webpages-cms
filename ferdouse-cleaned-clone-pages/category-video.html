@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Video – Ferdouse Khaleque</title>
-  <meta name="description" content="Blog posts filed under Video.">
+  <meta name="description" content="All Video posts.">
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preload" href="assets/fonts/Orbitron-400-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/pages.css">
   <link rel="canonical" href="https://www.ferdouse.com/category/video/">
 </head>
-<body class="interior">
+<body class="interior" data-prefix="categories">
 <svg class="icon-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
     <symbol id="icon-play" viewBox="0 0 24 24">
       <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.4"/>
@@ -75,7 +75,7 @@
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="movie.html">Movie</a>
         <div class="nav-item has-dropdown">
-          <a class="nav-link nav-trigger" href="books.html" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link nav-trigger is-current" href="books.html" aria-current="page" aria-haspopup="true" aria-expanded="false">
             Books
           </a>
           <ul class="dropdown" aria-label="Books">
@@ -135,19 +135,26 @@
   </header>
   <main id="main">
     <div class="page-shell">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a><span class="sep" aria-hidden="true">&rsaquo;</span><a href="blog.html">Blog</a><span class="sep" aria-hidden="true">&rsaquo;</span><span aria-current="page">Video</span>
-    </nav>
-        <h1 class="page-title">Video</h1>
-    <div class="post-list">
-      <article class="post-item">
-        <h2 class="post-item__title"><a href="duis-mauris-augue-efficitur-posuere-dignissim-neque.html">Duis Mauris Augue Efficitur Posuere Dignissim Neque</a></h2>
-        <p class="post-item__excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fames ac turpis egestas maecena</p>
-        <p class="post-item__date">2021-06-02</p>
-      </article>
+    <section class="blog-listing">
+    <div class="hero-section">
+    <header class="entry-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span class="sep" aria-hidden="true">&rsaquo;</span> <span aria-current="page">Video</span>
+      </nav>
+      <h1 class="page-title">Video</h1>
+    </header>
     </div>
+      <ul class="post-list">
+        <li class="post-card">
+          <h2><a href="turning-a-book-into-an-ai-movie.html">Turning My Book into an AI Movie</a></h2>
+          <p class="excerpt">My novel Blue the Ancient Rock is becoming a movie, made with AI, one chapter at a time. Here is why I started and what I have learnt so far.</p>
+          <p class="date"><time>2026-10-28 13:00:00</time></p>
+        </li>
+      </ul>
+    </section>
     </div>
   </main>
+
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-grid">
@@ -192,7 +199,6 @@
           <h3>Site Menu</h3>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="movie.html">Movie</a></li>
             <li><a href="books.html">Books</a></li>
             <li><a href="poetry.html">Poetry</a></li>
             <li><a href="music.html">Music</a></li>
